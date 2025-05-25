@@ -1,0 +1,4 @@
+ALTER TABLE orders 
+ADD COLUMN original_total DECIMAL(10,2) DEFAULT 0,
+ADD COLUMN discount_code VARCHAR(255),
+ADD COLUMN final_total DECIMAL(10,2) DEFAULT 0;

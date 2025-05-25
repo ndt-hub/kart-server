@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS discounts (
+    id SERIAL PRIMARY KEY,
+    discount_code VARCHAR(50) NOT NULL UNIQUE,
+    discount_value DECIMAL(5,2) NOT NULL,
+    valid_from TIMESTAMP NOT NULL,
+    valid_to TIMESTAMP NOT NULL,
+    remaining_count INTEGER NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
