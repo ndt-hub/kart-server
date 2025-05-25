@@ -6,6 +6,7 @@ import (
 	"log"
 	"path/filepath"
 	"sort"
+	"time"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -27,6 +28,16 @@ func InitDB() error {
 	if err != nil {
 		return fmt.Errorf("failed to connect to database: %v", err)
 	}
+
+	sqlDB, err := db.DB()
+	if err != nil {
+		return fmt.Errorf("failed to get database: %v", err)
+	}
+
+	sqlDB.SetMaxIdleConns(10)
+	sqlDB.SetMaxOpenConns(50)
+	sqlDB.SetConnMaxLifetime(time.Hour)
+
 	DB = db
 	return nil
 }

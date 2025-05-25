@@ -4,6 +4,12 @@ A RESTful API for Shopping Cart application with Go, Postgresql.
 It is a simple RESTful API with Go using **gin-gonic/gin** (a HTTP web framework) and **gorm** (An ORM library).
 
 ## Installation & Run
+#### Clone the repository:
+   ```
+   git clone git@github.com:ndt-hub/kart-server.git
+   cd kart-server
+   ```
+
 #### Configuration
 Before running API server, you should set the database/api config with yours by creating an `.env` file similar to [.env.example](https://github.com/ndt-hub/kart-server/blob/develop/.env.example)
 ```

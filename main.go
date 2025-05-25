@@ -4,6 +4,7 @@ import (
 	"kart-server/config"
 	"kart-server/controller"
 	"log"
+	"net/http"
 	"time"
 
 	"github.com/gin-contrib/cors"
@@ -30,11 +31,15 @@ func main() {
 
 	engine.Static("/images", "./public/images")
 
+	engine.GET("/health", func(context *gin.Context) {
+		context.Status(http.StatusOK)
+	})
+
 	api := engine.Group("/api")
 
 	api.GET("/product", controller.ListProducts)
 	api.GET("/product/:productId", controller.GetProduct)
-	api.POST("/product", controller.CreateProduct)
+	// api.POST("/product", controller.CreateProduct)
 
 	api.GET("/discount/:discountCode", controller.GetDiscount)
 
