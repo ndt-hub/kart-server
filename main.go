@@ -40,6 +40,6 @@ func main() {
 
 	api.POST("/order", controller.PlaceOrder)
 
-	log.Println("Starting server on :8080")
-	engine.Run(":8080")
+	log.Printf("Starting server on port %s", config.AppConfig.AppPort)
+	engine.Run(":" + config.AppConfig.AppPort)
 }

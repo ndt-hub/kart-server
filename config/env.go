@@ -10,6 +10,7 @@ import (
 
 type Config struct {
 	APIKey         string
+	AppPort        string
 	DBHost         string
 	DBPort         string
 	DBUser         string
@@ -29,6 +30,7 @@ func LoadEnv() {
 
 	AppConfig = Config{
 		APIKey:     getEnv("API_KEY", "apitest"),
+		AppPort:    getEnv("APP_PORT", "8080"),
 		DBHost:     getEnv("DB_HOST", "localhost"),
 		DBPort:     getEnv("DB_PORT", "5432"),
 		DBUser:     getEnv("DB_USER", "postgres"),
